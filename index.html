@@ -1,0 +1,526 @@
+import React from 'react';
+
+export default function UserJourneyInfographic() {
+  return (
+    <div className="w-full min-h-screen bg-[#fdf7f5] text-[#382a27] px-10 py-12 space-y-16">
+      {/* HERO */}
+      <header className="space-y-6 max-w-6xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center tracking-tight">
+          GAIN — End‑to‑End User Journey Map
+        </h1>
+        <p className="text-lg md:text-xl text-center max-w-3xl mx-auto">
+          From trusted onboarding to AI‑orchestrated help delivery, network visualization, and calendar‑driven collaboration.
+          Designed in <strong>landscape‑friendly sections</strong> so you can capture each stage as a separate PPT slide.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-sm">
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#ff8269' }}></span>
+            <span>Action / Primary CTA</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#bf0d34' }}></span>
+            <span>AI & Trust Layer</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#382a27' }}></span>
+            <span>Background / Structure</span>
+          </div>
+        </div>
+      </header>
+
+      {/* STAGE 0: SIGN‑UP & VETTING (User Stories 1–7) */}
+      <section className="max-w-6xl mx-auto space-y-6">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold shadow"
+            style={{ backgroundColor: '#bf0d34' }}
+          >
+            0
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold">Sign‑Up & Trust Foundation</h2>
+            <p className="text-base md:text-lg">User creates a profile and passes through sponsorship + identity verification to enter a high‑trust network.</p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Profile creation options (1–3) */}
+          <div className="rounded-2xl border border-[#f0d2ca] bg-white shadow-sm p-5 flex flex-col gap-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>1–3</span>
+              Effortless Profile Setup
+            </h3>
+            <p className="text-sm md:text-base">
+              User chooses one of three paths:
+            </p>
+            <ul className="text-sm md:text-base list-disc list-inside space-y-1">
+              <li>Sync from LinkedIn (Story 1)</li>
+              <li>Upload resume (Story 2)</li>
+              <li>Manual profile (Story 3)</li>
+            </ul>
+            <div className="mt-3 rounded-xl border border-dashed border-[#ff8269] p-3 text-xs md:text-sm">
+              <strong>UI sketch:</strong> 3 pill buttons at the top (&ldquo;LinkedIn&rdquo;, &ldquo;Upload CV&rdquo;, &ldquo;Manual&rdquo;) with a preview card showing auto‑filled profile.
+            </div>
+          </div>
+
+          {/* View‑only exploration (4) + map as home after sign‑up */}
+          <div className="rounded-2xl border border-[#f0d2ca] bg-white shadow-sm p-5 flex flex-col gap-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>4</span>
+              View‑Only Exploration
+            </h3>
+            <p className="text-sm md:text-base">
+              Newly signed‑up, unverified users land on the <strong>Interactive Network Map</strong> as their home screen and can explore in view‑only mode.
+            </p>
+            <ul className="text-sm md:text-base list-disc list-inside space-y-1">
+              <li>Swipe between Map, AI Chat, and Calendar (Story 4)</li>
+              <li>Any interaction triggers sponsorship prompt (Stories 4, 34)</li>
+            </ul>
+            <div className="mt-3 rounded-xl p-3 text-xs md:text-sm flex flex-col gap-2" style={{ backgroundColor: '#382a27', color: '#fdf7f5' }}>
+              <strong>Map mock UI:</strong>
+              <div className="flex justify-center">
+                <div className="relative w-52 h-32 rounded-2xl bg-[#241816]">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="w-6 h-6 rounded-full" style={{ backgroundColor: '#ff8269' }}></span>
+                  </div>
+                  <span className="absolute left-3 top-4 w-3 h-3 rounded-full" style={{ backgroundColor: '#bf0d34' }}></span>
+                  <span className="absolute right-6 top-8 w-3 h-3 rounded-full" style={{ backgroundColor: '#ff8269' }}></span>
+                  <span className="absolute left-10 bottom-5 w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#ff8269' }}></span>
+                  <span className="absolute right-5 bottom-6 w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#bf0d34' }}></span>
+                </div>
+              </div>
+              <span className="text-center opacity-80">Respectful schematic only — no real people shown.</span>
+            </div>
+          </div>
+
+          {/* Sponsorship & verification (5–7) */}
+          <div className="rounded-2xl border border-[#f0d2ca] bg-white shadow-sm p-5 flex flex-col gap-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>5–7</span>
+              Sponsorship & Verification
+            </h3>
+            <p className="text-sm md:text-base">
+              User completes high‑trust vetting:
+            </p>
+            <ul className="text-sm md:text-base list-disc list-inside space-y-1">
+              <li>Request 3 sponsorships via contacts or link (Story 5)</li>
+              <li>Sponsors review profile, approve/reject, add notes (Story 6)</li>
+              <li>Identity verification with ID + selfie video (Story 7)</li>
+            </ul>
+            <div className="mt-3 rounded-xl border border-dashed border-[#bf0d34] p-3 text-xs md:text-sm">
+              <strong>UI sketch:</strong> vertical timeline with badges: <em>Requests sent → 3 Sponsors → ID Verified → Full Member</em>.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STAGE 1: DISCOVERY & MATCHING (User Stories 8–15) */}
+      <section className="max-w-6xl mx-auto space-y-6">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold shadow"
+            style={{ backgroundColor: '#bf0d34' }}
+          >
+            1
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold">Discovery & AI‑Powered Matching</h2>
+            <p className="text-base md:text-lg">User searches for people, jobs, or organizations in natural language. AI interprets, refines, and returns ranked matches.</p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-[1.4fr_1.1fr] gap-6 items-start">
+          {/* AI chat + results mock (8–11, 13–14) */}
+          <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-5 space-y-4">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>8–11, 13–14</span>
+              Chat‑First Search & Ranked Results
+            </h3>
+            <div className="rounded-2xl overflow-hidden border border-[#ead0c7]">
+              <div className="px-4 py-2 text-xs flex justify-between items-center" style={{ backgroundColor: '#382a27', color: '#fdf7f5' }}>
+                <span>GAIN · AI Search</span>
+                <span className="opacity-70">Draft · Matches</span>
+              </div>
+              <div className="p-4 space-y-3 bg-[#fdf7f5]">
+                <div className="rounded-xl px-3 py-2 text-sm border border-[#ff8269] bg-white">
+                  User: 
+                  <span className="font-medium">&nbsp;"Find a biotech investor in Boston"</span>
+                </div>
+                <div className="rounded-xl px-3 py-2 text-xs md:text-sm border border-dashed border-[#bf0d34] bg-white flex flex-col gap-1">
+                  <span className="font-semibold">AI interpretation</span>
+                  <span>Role: Investor · Domain: Biotech · Location: Boston · Seniority: Partner+</span>
+                  <span className="text-[11px] opacity-80">(Stories 8, 13: parse, clarify, refine)</span>
+                </div>
+                <div className="space-y-2">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="flex items-center justify-between rounded-lg bg-white px-3 py-2 border border-[#ead0c7] text-xs md:text-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-full" style={{ backgroundColor: i === 1 ? '#bf0d34' : '#ff8269' }}></div>
+                        <div>
+                          <div className="font-semibold">Match #{i}</div>
+                          <div className="text-[11px] opacity-80">Biotech · Investor · Boston</div>
+                        </div>
+                      </div>
+                      <div className="text-right text-[11px] flex flex-col gap-1">
+                        <span>Relevance: {100 - (i - 1) * 8}%</span>
+                        <span className="italic">"Why this match?"</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <ul className="list-disc list-inside text-sm md:text-base space-y-1">
+              <li>Natural‑language query and structured interpretation (Story 8)</li>
+              <li>Filtering and re‑ranking with chips (Story 9)</li>
+              <li>Ranked candidates with &ldquo;Why this match?&rdquo; (Story 11)</li>
+              <li>Query clarification prompts and alternatives (Stories 13–14)</li>
+            </ul>
+          </div>
+
+          {/* Instant answers + saved search + recommendations (10, 12, 15) */}
+          <div className="space-y-5">
+            <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-4 space-y-3">
+              <h3 className="font-semibold text-base md:text-lg flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>10, 12</span>
+                Instant AI Draft & Opportunity Cards
+              </h3>
+              <p className="text-sm md:text-base">
+                For low‑stakes questions and opportunities, AI:
+              </p>
+              <ul className="list-disc list-inside text-sm md:text-base space-y-1">
+                <li>Returns an <strong>AI Draft</strong> answer synthesized from the profile graph (Story 10)</li>
+                <li>Surfaces jobs/internships/projects as cards with match strength (Story 12)</li>
+              </ul>
+              <div className="mt-2 grid gap-2 text-xs md:text-sm">
+                <div className="rounded-xl border border-dashed border-[#ff8269] px-3 py-2 bg-[#fff8f6]">
+                  AI Draft: &ldquo;Here are 3 steps to prepare your product portfolio...&rdquo;
+                </div>
+                <div className="rounded-xl border border-[#ead0c7] px-3 py-2 bg-white flex justify-between items-center">
+                  <span>Product Analyst · Berlin · Remote</span>
+                  <span className="text-[11px] font-semibold" style={{ color: '#bf0d34' }}>Match: 92%</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-4 space-y-3">
+              <h3 className="font-semibold text-base md:text-lg flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>15</span>
+                Saved Searches & Alerts
+              </h3>
+              <p className="text-sm md:text-base">
+                User saves search criteria and receives in‑app notifications when new relevant members or jobs appear (Story 15).
+              </p>
+              <div className="rounded-xl border border-dashed border-[#bf0d34] px-3 py-2 text-xs md:text-sm flex justify-between items-center bg-[#fff8f6]">
+                <span>Saved: &ldquo;Senior ML engineers · Remote&rdquo;</span>
+                <span className="font-semibold" style={{ color: '#bf0d34' }}>+2 new this week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STAGE 2: ENGAGEMENT & HELP DELIVERY (User Stories 16–22) */}
+      <section className="max-w-6xl mx-auto space-y-6">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold shadow"
+            style={{ backgroundColor: '#bf0d34' }}
+          >
+            2
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold">Engagement & Help Delivery</h2>
+            <p className="text-base md:text-lg">AI orchestrates outreach, meetings, synthesis, and reciprocity — ensuring the user actually receives help.</p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Outreach (16, 22) */}
+          <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-5 space-y-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>16, 22</span>
+              AI Outreach & Time Protection
+            </h3>
+            <p className="text-sm md:text-base">
+              User clicks <strong>&ldquo;Ask AI to reach out&rdquo;</strong>. AI:
+            </p>
+            <ul className="list-disc list-inside text-sm md:text-base space-y-1">
+              <li>Contacts a shortlist of matched experts with a standardized request (Story 16)</li>
+              <li>Shows outreach status (Pending → Viewed → Responded) (Story 16)</li>
+              <li>Respects weekly request limits and availability settings (Story 22)</li>
+            </ul>
+            <div className="mt-2 rounded-xl border border-dashed border-[#ff8269] px-3 py-2 text-xs md:text-sm bg-[#fff8f6]">
+              <div className="flex justify-between"><span>3 experts contacted</span><span>Pending</span></div>
+              <div className="mt-1 h-1.5 rounded-full overflow-hidden bg-[#f0d2ca]">
+                <div className="h-full" style={{ width: '40%', backgroundColor: '#bf0d34' }}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Scheduling (17) */}
+          <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-5 space-y-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>17</span>
+              Automated Scheduling
+            </h3>
+            <p className="text-sm md:text-base">
+              Once an expert accepts the request, AI:
+            </p>
+            <ul className="list-disc list-inside text-sm md:text-base space-y-1">
+              <li>Scans both calendars for free slots</li>
+              <li>Proposes 2–4 times to both parties</li>
+              <li>Books the meeting + sends invite with GAIN video link</li>
+            </ul>
+            <div className="mt-2 rounded-xl border border-[#ead0c7] p-3 text-xs md:text-sm bg-[#fdf7f5]">
+              <div className="flex justify-between mb-1">
+                <span>Suggested slots</span>
+                <span className="font-semibold" style={{ color: '#bf0d34' }}>Next 10 days</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['Mon 10:00', 'Tue 18:30', 'Thu 20:00'].map((t) => (
+                  <button
+                    key={t}
+                    className="px-3 py-1 rounded-full text-xs border border-[#ff8269] bg-white"
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Synthesis + Points + Rating (18–21) */}
+          <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-5 space-y-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>18–21</span>
+              Help Synthesis, Ratings & Reciprocity
+            </h3>
+            <ul className="list-disc list-inside text-sm md:text-base space-y-1">
+              <li>AI synthesizes written responses into one &ldquo;GAIN Synthesis&rdquo; (Story 18)</li>
+              <li>User spends Give Forward points to initiate high‑value requests (Story 19)</li>
+              <li>Helpers earn points for completed meetings/answers (Story 20)</li>
+              <li>Both sides confirm meeting completion and rate experience (Story 21)</li>
+            </ul>
+            <div className="mt-2 space-y-1 text-xs md:text-sm">
+              <div className="rounded-xl border border-dashed border-[#bf0d34] px-3 py-2 bg-[#fff8f6]">
+                <strong>GAIN Synthesis from 3 experts</strong>
+                <p className="mt-1 text-[11px] opacity-80">
+                  Key agreements · Diverging views · Next recommended steps.
+                </p>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Wallet balance</span>
+                <span className="font-semibold" style={{ color: '#bf0d34' }}>420 Give Forward pts</span>
+              </div>
+              <div className="flex items-center gap-1 text-[11px]">
+                <span>Rate interaction:</span>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i} className="text-lg" style={{ color: i < 4 ? '#ff8269' : '#f0d2ca' }}>★</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STAGE 3: NETWORK MAP (User Stories 23–35) */}
+      <section className="max-w-6xl mx-auto space-y-6">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold shadow"
+            style={{ backgroundColor: '#bf0d34' }}
+          >
+            3
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold">Ongoing Network Visualization</h2>
+            <p className="text-base md:text-lg">User continuously understands and manages their professional graph via the Network Map and its AI insights.</p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-[1.4fr_1.1fr] gap-6 items-start">
+          {/* Graph + World Map mock (23–26, 28–33) */}
+          <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-5 space-y-4">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>23–26, 28–33</span>
+              Interactive Graph & World Map Modes
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-2xl p-3 bg-[#382a27] text-[#fdf7f5] space-y-2">
+                <div className="flex justify-between text-xs mb-1 opacity-80">
+                  <span>Graph Mode</span>
+                  <span>Filters · Search</span>
+                </div>
+                <div className="relative h-40">
+                  {/* central node */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-full" style={{ backgroundColor: '#ff8269' }}></div>
+                  </div>
+                  {/* surrounding nodes */}
+                  <div className="absolute left-3 top-8 w-3 h-3 rounded-full" style={{ backgroundColor: '#bf0d34' }}></div>
+                  <div className="absolute right-6 top-6 w-3 h-3 rounded-full opacity-80" style={{ backgroundColor: '#ff8269' }}></div>
+                  <div className="absolute left-10 bottom-6 w-2.5 h-2.5 rounded-full opacity-60" style={{ backgroundColor: '#ff8269' }}></div>
+                  <div className="absolute right-4 bottom-10 w-3 h-3 rounded-full" style={{ backgroundColor: '#bf0d34' }}></div>
+                  {/* simple connection lines */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                    <line x1="100" y1="100" x2="40" y2="60" stroke="#f0d2ca" strokeWidth="1" />
+                    <line x1="100" y1="100" x2="160" y2="50" stroke="#f0d2ca" strokeWidth="1.5" />
+                    <line x1="100" y1="100" x2="60" y2="150" stroke="#f0d2ca" strokeWidth="0.8" />
+                    <line x1="100" y1="100" x2="170" y2="130" stroke="#f0d2ca" strokeWidth="1.2" />
+                  </svg>
+                </div>
+                <p className="text-[11px]">
+                  Node brightness, edge thickness, and heat overlays communicate recency, intensity, and activity clusters (Stories 23, 25, 32).
+                </p>
+              </div>
+
+              <div className="rounded-2xl p-3 bg-white border border-[#ead0c7] space-y-2 text-xs md:text-sm">
+                <div className="flex justify-between mb-1">
+                  <span>World Map Mode</span>
+                  <span className="text-[11px]" style={{ color: '#bf0d34' }}>Activity Heatmap</span>
+                </div>
+                <div className="h-40 rounded-xl bg-gradient-to-tr from-[#fff2ee] via-[#fde0d7] to-[#f9c4b1] relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-[11px] opacity-70">
+                    World silhouettes & clusters
+                  </div>
+                  <div className="absolute left-6 top-10 w-5 h-5 rounded-full" style={{ backgroundColor: 'rgba(191,13,52,0.55)' }}></div>
+                  <div className="absolute right-10 top-16 w-6 h-6 rounded-full" style={{ backgroundColor: 'rgba(255,130,105,0.6)' }}></div>
+                  <div className="absolute left-16 bottom-10 w-4 h-4 rounded-full" style={{ backgroundColor: 'rgba(191,13,52,0.7)' }}></div>
+                </div>
+                <p>
+                  Toggle between graph and geographic view, search for people/orgs, filter by connection type, and expand second‑degree nodes (Stories 24, 26, 28–31, 33).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Re‑engagement & guest view (27, 29–30, 34–35) */}
+          <div className="space-y-4">
+            <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-4 space-y-2 text-sm md:text-base">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>27, 29–31</span>
+                Act on the Map
+              </h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Open side panel to message, request help, or schedule directly from nodes (Story 27)</li>
+                <li>Search bar highlights nodes and centers on results (Story 29)</li>
+                <li>Filter by connection type / organizations, with distinct shapes for companies & orgs (Stories 30–31)</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-4 space-y-2 text-sm md:text-base">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>32–35</span>
+                Activity, Suggestions & Guest Mode
+              </h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Activity heatmap reveals &ldquo;hot&rdquo; collaboration clusters (Story 32)</li>
+                <li>AI suggests people/orgs to connect with, based on skills and reciprocity (Story 33)</li>
+                <li>Guest users can zoom/hover but must request sponsorship to act (Story 34)</li>
+                <li>AI highlights people to re‑engage with based on history (Story 35)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STAGE 4: NETWORK CALENDAR (User Stories 36–39) */}
+      <section className="max-w-6xl mx-auto space-y-6 pb-12">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold shadow"
+            style={{ backgroundColor: '#bf0d34' }}
+          >
+            4
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold">Network Calendar & Events</h2>
+            <p className="text-base md:text-lg">User manages all their GAIN meetings, sessions, and network events in one unified calendar view.</p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-[1.4fr_1.1fr] gap-6 items-start">
+          {/* Calendar mock (36–38) */}
+          <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-5 space-y-4">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>36–38</span>
+              Interactive Network Calendar
+            </h3>
+            <div className="rounded-2xl border border-[#ead0c7] overflow-hidden">
+              <div className="px-4 py-2 text-xs flex justify-between items-center" style={{ backgroundColor: '#382a27', color: '#fdf7f5' }}>
+                <span>Week View</span>
+                <span className="opacity-70">My Events · Network Events</span>
+              </div>
+              <div className="p-3 bg-[#fdf7f5] text-xs md:text-sm space-y-2">
+                <div className="flex justify-between items-center mb-1">
+                  <span>Mon</span>
+                  <span>Tue</span>
+                  <span>Wed</span>
+                  <span>Thu</span>
+                  <span>Fri</span>
+                </div>
+                <div className="h-28 grid grid-cols-5 gap-2">
+                  <div className="rounded-lg bg-white border border-[#ead0c7]"></div>
+                  <div className="rounded-lg bg-white border border-[#ead0c7] flex items-center justify-center text-[11px]" style={{ backgroundColor: '#ffede7' }}>
+                    1–1 Mentorship
+                  </div>
+                  <div className="rounded-lg bg-white border border-[#ead0c7]"></div>
+                  <div className="rounded-lg bg-white border border-[#ead0c7] flex items-center justify-center text-[11px]" style={{ backgroundColor: '#ff8269', color: '#fdf7f5' }}>
+                    AI‑scheduled call
+                  </div>
+                  <div className="rounded-lg bg-white border border-[#ead0c7]"></div>
+                </div>
+              </div>
+            </div>
+            <p className="text-sm md:text-base">
+              All AI‑scheduled calls, group sessions, and events appear here (Story 36). Users can also create their own events and control visibility and Give Forward requirements (Story 37).
+            </p>
+          </div>
+
+          {/* Event creation & joining public events (37–39) */}
+          <div className="space-y-4">
+            <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-4 space-y-3 text-sm md:text-base">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>37</span>
+                Create 1–1 or Group Events
+              </h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Set title, time, location / video link, capacity (Story 37)</li>
+                <li>Decide if event is public, invite‑only, or requires points</li>
+              </ul>
+              <div className="mt-2 rounded-xl border border-dashed border-[#ff8269] px-3 py-2 text-xs md:text-sm bg-[#fff8f6]">
+                + Create event &ldquo;Tech Mentorship Hour&rdquo; · Public · 20 seats · 50 pts required
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-white border border-[#f0d2ca] shadow-sm p-4 space-y-3 text-sm md:text-base">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs text-white" style={{ backgroundColor: '#ff8269' }}>38–39</span>
+                Availability & Joining Network Events
+              </h3>
+              <ul className="list-disc list-inside space-y-1">
+                <li>View others’ shared availability windows from their profile (Story 38)</li>
+                <li>Join public/network‑wide events directly from the calendar (Story 39)</li>
+              </ul>
+              <div className="mt-2 rounded-xl border border-[#ead0c7] px-3 py-2 text-xs md:text-sm bg-[#fdf7f5] flex flex-col gap-1">
+                <span><strong>Network Event:</strong> &ldquo;Global Armenian Founders Meetup&rdquo;</span>
+                <span>Host: GAIN · Online · Sat 19:00</span>
+                <button
+                  className="mt-1 self-start px-3 py-1 rounded-full text-xs font-semibold"
+                  style={{ backgroundColor: '#bf0d34', color: '#fdf7f5' }}
+                >
+                  Join event
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="text-center text-xs md:text-sm text-[#7c635c] pb-4 opacity-80">
+        GAIN MVP · Brand colors: #ff8269 · #bf0d34 · #382a27 · Designed for PPT landscape screenshots.
+      </footer>
+    </div>
+  );
+}
