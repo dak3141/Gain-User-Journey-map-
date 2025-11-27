@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GAIN — End-to-End User Journey Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --gain-peach: #ff8269;
+      --gain-red: #bf0d34;
+      --gain-brown: #382a27;
+      --bg-soft: #fdf7f5;
+      --border-soft: #f0d2ca;
+      --border-soft-2: #ead0c7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: var(--bg-soft);
+      color: var(--gain-brown);
+      line-height: 1.5;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 3rem 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 3rem 2.5rem 4rem;
+      }
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .max-w-6xl {
+      max-width: 72rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+    }
+
+    .hero {
+      margin-bottom: 4rem;
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chip-color {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    /* Section header */
+    .section {
+      margin: 0 auto 4rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-badge {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--gain-red);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin: 0 0 0.25rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+      }
+    }
+
+    /* Grid helpers */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2-1 {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      }
+    }
+
+    /* Cards */
+    .card {
+      background-color: #fff;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border-soft);
+      padding: 1.25rem 1.25rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .story-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 999px;
+      background-color: var(--gain-peach);
+      color: #fff;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.9375rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 0.9375rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .note-box {
+      margin-top: 0.5rem;
+      border-radius: 0.9rem;
+      border: 1px dashed var(--gain-peach);
+      padding: 0.75rem;
+      font-size: 0.8125rem;
+      background-color: #fff;
+    }
+
+    .note-box.red {
+      border-color: var(--gain-red);
+    }
+
+    /* Map mock */
+    .map-note {
+      margin-top: 0.75rem;
+      border-radius: 0.9rem;
+      padding: 0.75rem;
+      font-size: 0.8125rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background-color: var(--gain-brown);
+      color: var(--bg-soft);
+    }
+
+    .map-frame {
+      display: flex;
+      justify-content: center;
+    }
+
+    .map-inner {
+      position: relative;
+      width: 13rem;
+      height: 8rem;
+      border-radius: 1rem;
+      background-color: #241816;
+    }
+
+    .map-node-main {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-node-main span {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      background-color: var(--gain-peach);
+      display: inline-block;
+    }
+
+    .map-node-small {
+      position: absolute;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* AI pane mock */
+    .ai-pane {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--border-soft-2);
+    }
+
+    .ai-pane-header {
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--gain-brown);
+      color: var(--bg-soft);
+    }
+
+    .ai-pane-body {
+      padding: 1rem;
+      background-color: var(--bg-soft);
+      font-size: 0.875rem;
+    }
+
+    .ai-query {
+      border-radius: 0.85rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--gain-peach);
+      background-color: #fff;
+      font-size: 0.875rem;
+    }
+
+    .ai-interpret {
+      border-radius: 0.85rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px dashed var(--gain-red);
+      background-color: #fff;
+      font-size: 0.8125rem;
+      margin-top: 0.5rem;
+    }
+
+    .ai-match-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-soft-2);
+      padding: 0.4rem 0.75rem;
+      background-color: #fff;
+      font-size: 0.75rem;
+    }
+
+    .ai-match-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ai-match-avatar {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 999px;
+      background-color: var(--gain-peach);
+      flex-shrink: 0;
+    }
+
+    .ai-match-avatar.primary {
+      background-color: var(--gain-red);
+    }
+
+    .ai-match-right {
+      text-align: right;
+      font-size: 0.6875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--gain-peach);
+      background-color: #fff;
+      font-size: 0.75rem;
+      cursor: default;
+    }
+
+    /* Graph mock */
+    .graph-card {
+      border-radius: 1.25rem;
+      padding: 0.75rem;
+      background-color: var(--gain-brown);
+      color: var(--bg-soft);
+      font-size: 0.75rem;
+    }
+
+    .graph-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      opacity: 0.8;
+    }
+
+    .graph-area {
+      position: relative;
+      height: 10rem;
+    }
+
+    .graph-node-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .graph-node-center div {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 999px;
+      background-color: var(--gain-peach);
+    }
+
+    .world-card {
+      border-radius: 1.25rem;
+      padding: 0.75rem;
+      background-color: #fff;
+      border: 1px solid var(--border-soft-2);
+      font-size: 0.8125rem;
+    }
+
+    .world-map {
+      height: 10rem;
+      border-radius: 0.9rem;
+      background-image: linear-gradient(
+        to top right,
+        #fff2ee,
+        #fde0d7,
+        #f9c4b1
+      );
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0.4rem;
+      font-size: 0.7rem;
+      color: rgba(56, 42, 39, 0.7);
+    }
+
+    .world-map-center-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+    }
+
+    .world-heat {
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    /* Calendar mock */
+    .calendar-pane {
+      border-radius: 1.25rem;
+      border: 1px solid var(--border-soft-2);
+      overflow: hidden;
+    }
+
+    .calendar-header {
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      background-color: var(--gain-brown);
+      color: var(--bg-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .calendar-body {
+      padding: 0.75rem;
+      background-color: var(--bg-soft);
+      font-size: 0.75rem;
+    }
+
+    .calendar-days {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.35rem;
+    }
+
+    .calendar-grid {
+      height: 7rem;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.4rem;
+    }
+
+    .calendar-cell {
+      border-radius: 0.6rem;
+      border: 1px solid var(--border-soft-2);
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.25rem;
+    }
+
+    .calendar-cell.mentorship {
+      background-color: #ffede7;
+      font-size: 0.6875rem;
+    }
+
+    .calendar-cell.ai-call {
+      background-color: var(--gain-peach);
+      color: var(--bg-soft);
+      font-size: 0.6875rem;
+    }
+
+    /* Simple utility */
+    .mt-1 {
+      margin-top: 0.25rem;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-3 {
+      margin-top: 0.75rem;
+    }
+
+    .space-y > * + * {
+      margin-top: 0.75rem;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #7c635c;
+      opacity: 0.8;
+      padding-bottom: 1.5rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HERO -->
+    <header class="hero mx-auto max-w-6xl">
+      <h1 class="hero-title text-center">
+        GAIN — End-to-End User Journey Map
+      </h1>
+      <p class="hero-subtitle text-center">
+        From trusted onboarding to AI-orchestrated help delivery, network
+        visualization, and calendar-driven collaboration. Designed in
+        <strong>landscape-friendly sections</strong> so you can capture each
+        stage as a separate PPT slide.
+      </p>
+      <div class="chips-row">
+        <div class="chip">
+          <span
+            class="chip-color"
+            style="background-color: var(--gain-peach);"
+          ></span>
+          <span>Action / Primary CTA</span>
+        </div>
+        <div class="chip">
+          <span
+            class="chip-color"
+            style="background-color: var(--gain-red);"
+          ></span>
+          <span>AI &amp; Trust Layer</span>
+        </div>
+        <div class="chip">
+          <span
+            class="chip-color"
+            style="background-color: var(--gain-brown);"
+          ></span>
+          <span>Background / Structure</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- STAGE 0: SIGN-UP & VETTING (User Stories 1–7) -->
+    <section class="section mx-auto max-w-6xl">
+      <div class="section-header">
+        <div class="section-badge">0</div>
+        <div>
+          <h2 class="section-title">Sign-Up &amp; Trust Foundation</h2>
+          <p class="section-subtitle">
+            User creates a profile and passes through sponsorship + identity
+            verification to enter a high-trust network.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Profile creation options (1–3) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">1–3</span>
+            <span>Effortless Profile Setup</span>
+          </div>
+          <p>User chooses one of three paths:</p>
+          <ul>
+            <li>Sync from LinkedIn (Story 1)</li>
+            <li>Upload resume (Story 2)</li>
+            <li>Manual profile (Story 3)</li>
+          </ul>
+          <div class="note-box">
+            <strong>UI sketch:</strong> 3 pill buttons at the top (“LinkedIn”,
+            “Upload CV”, “Manual”) with a preview card showing auto-filled
+            profile.
+          </div>
+        </div>
+
+        <!-- View-only exploration (4) + map as home after sign-up -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">4</span>
+            <span>View-Only Exploration</span>
+          </div>
+          <p>
+            Newly signed-up, unverified users land on the
+            <strong>Interactive Network Map</strong> as their home screen and
+            can explore in view-only mode.
+          </p>
+          <ul>
+            <li>Swipe between Map, AI Chat, and Calendar (Story 4)</li>
+            <li>Any interaction triggers sponsorship prompt (Stories 4, 34)</li>
+          </ul>
+          <div class="map-note">
+            <strong>Map mock UI:</strong>
+            <div class="map-frame">
+              <div class="map-inner">
+                <div class="map-node-main">
+                  <span></span>
+                </div>
+                <span
+                  class="map-node-small"
+                  style="left: 0.75rem; top: 1rem; width: 0.75rem; height: 0.75rem; background-color: var(--gain-red);"
+                ></span>
+                <span
+                  class="map-node-small"
+                  style="right: 1.5rem; top: 2rem; width: 0.75rem; height: 0.75rem; background-color: var(--gain-peach);"
+                ></span>
+                <span
+                  class="map-node-small"
+                  style="left: 2.5rem; bottom: 1.4rem; width: 0.65rem; height: 0.65rem; background-color: var(--gain-peach);"
+                ></span>
+                <span
+                  class="map-node-small"
+                  style="right: 1.25rem; bottom: 1.6rem; width: 0.65rem; height: 0.65rem; background-color: var(--gain-red);"
+                ></span>
+              </div>
+            </div>
+            <span class="text-center"
+              >Respectful schematic only — no real people shown.</span
+            >
+          </div>
+        </div>
+
+        <!-- Sponsorship & verification (5–7) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">5–7</span>
+            <span>Sponsorship &amp; Verification</span>
+          </div>
+          <p>User completes high-trust vetting:</p>
+          <ul>
+            <li>Request 3 sponsorships via contacts or link (Story 5)</li>
+            <li>
+              Sponsors review profile, approve/reject, add notes (Story 6)
+            </li>
+            <li>
+              Identity verification with ID + selfie video upload (Story 7)
+            </li>
+          </ul>
+          <div class="note-box red">
+            <strong>UI sketch:</strong> vertical timeline with badges:
+            <em>Requests sent → 3 Sponsors → ID Verified → Full Member</em>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 1: DISCOVERY & MATCHING (User Stories 8–15) -->
+    <section class="section mx-auto max-w-6xl">
+      <div class="section-header">
+        <div class="section-badge">1</div>
+        <div>
+          <h2 class="section-title">Discovery &amp; AI-Powered Matching</h2>
+          <p class="section-subtitle">
+            User searches for people, jobs, or organizations in natural
+            language. AI interprets, refines, and returns ranked matches.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-2-1">
+        <!-- AI chat + results mock (8–11, 13–14) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">8–11, 13–14</span>
+            <span>Chat-First Search &amp; Ranked Results</span>
+          </div>
+          <div class="ai-pane">
+            <div class="ai-pane-header">
+              <span>GAIN · AI Search</span>
+              <span class="opacity-70">Draft · Matches</span>
+            </div>
+            <div class="ai-pane-body">
+              <div class="ai-query">
+                User:
+                <span class="font-medium"> "Find a biotech investor in Boston"</span>
+              </div>
+              <div class="ai-interpret">
+                <span><strong>AI interpretation</strong></span><br />
+                Role: Investor · Domain: Biotech · Location: Boston ·
+                Seniority: Partner+<br />
+                <span style="font-size: 0.7rem; opacity: 0.8;">
+                  (Stories 8, 13: parse, clarify, refine)
+                </span>
+              </div>
+
+              <div class="mt-2 space-y">
+                <div class="ai-match-card">
+                  <div class="ai-match-left">
+                    <div class="ai-match-avatar primary"></div>
+                    <div>
+                      <div class="font-semibold">Match #1</div>
+                      <div style="font-size: 0.6875rem; opacity: 0.8;">
+                        Biotech · Investor · Boston
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ai-match-right">
+                    <span>Relevance: 100%</span>
+                    <span><em>"Why this match?"</em></span>
+                  </div>
+                </div>
+
+                <div class="ai-match-card">
+                  <div class="ai-match-left">
+                    <div class="ai-match-avatar"></div>
+                    <div>
+                      <div class="font-semibold">Match #2</div>
+                      <div style="font-size: 0.6875rem; opacity: 0.8;">
+                        Biotech · Investor · Boston
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ai-match-right">
+                    <span>Relevance: 92%</span>
+                    <span><em>"Why this match?"</em></span>
+                  </div>
+                </div>
+
+                <div class="ai-match-card">
+                  <div class="ai-match-left">
+                    <div class="ai-match-avatar"></div>
+                    <div>
+                      <div class="font-semibold">Match #3</div>
+                      <div style="font-size: 0.6875rem; opacity: 0.8;">
+                        Biotech · Investor · Boston
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ai-match-right">
+                    <span>Relevance: 84%</span>
+                    <span><em>"Why this match?"</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="mt-2">
+            <li>Natural-language query and structured interpretation (Story 8)</li>
+            <li>Filtering and re-ranking with chips (Story 9)</li>
+            <li>Ranked candidates with “Why this match?” (Story 11)</li>
+            <li>Query clarification prompts and alternatives (Stories 13–14)</li>
+          </ul>
+        </div>
+
+        <!-- Instant answers + saved search + recommendations (10, 12, 15) -->
+        <div class="space-y">
+          <div class="card">
+            <div class="card-header">
+              <span class="story-badge">10, 12</span>
+              <span>Instant AI Draft &amp; Opportunity Cards</span>
+            </div>
+            <p>For low-stakes questions and opportunities, AI:</p>
+            <ul>
+              <li>
+                Returns an <strong>AI Draft</strong> answer synthesized from the
+                profile graph (Story 10)
+              </li>
+              <li>
+                Surfaces jobs/internships/projects as cards with match strength
+                (Story 12)
+              </li>
+            </ul>
+            <div class="mt-2 space-y">
+              <div class="note-box">
+                AI Draft: “Here are 3 steps to prepare your product
+                portfolio...”
+              </div>
+              <div
+                class="ai-match-card"
+                style="border-color: var(--border-soft-2);"
+              >
+                <span>Product Analyst · Berlin · Remote</span>
+                <span
+                  style="font-size: 0.7rem; font-weight: 600; color: var(--gain-red);"
+                  >Match: 92%</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="story-badge">15</span>
+              <span>Saved Searches &amp; Alerts</span>
+            </div>
+            <p>
+              User saves search criteria and receives in-app notifications when
+              new relevant members or jobs appear (Story 15).
+            </p>
+            <div class="note-box red" style="background-color: #fff8f6;">
+              <span>Saved: “Senior ML engineers · Remote”</span>
+              <span
+                style="float: right; font-weight: 600; color: var(--gain-red);"
+                >+2 new this week</span
+              >
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 2: ENGAGEMENT & HELP DELIVERY (User Stories 16–22) -->
+    <section class="section mx-auto max-w-6xl">
+      <div class="section-header">
+        <div class="section-badge">2</div>
+        <div>
+          <h2 class="section-title">Engagement &amp; Help Delivery</h2>
+          <p class="section-subtitle">
+            AI orchestrates outreach, meetings, synthesis, and reciprocity —
+            ensuring the user actually receives help.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Outreach (16, 22) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">16, 22</span>
+            <span>AI Outreach &amp; Time Protection</span>
+          </div>
+          <p>
+            User clicks <strong>“Ask AI to reach out”</strong>. AI:
+          </p>
+          <ul>
+            <li>
+              Contacts a shortlist of matched experts with a standardized
+              request (Story 16)
+            </li>
+            <li>
+              Shows outreach status (Pending → Viewed → Responded) (Story 16)
+            </li>
+            <li>
+              Respects weekly request limits and availability settings (Story
+              22)
+            </li>
+          </ul>
+          <div class="note-box" style="background-color: #fff8f6;">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.75rem;
+              "
+            >
+              <span>3 experts contacted</span><span>Pending</span>
+            </div>
+            <div
+              style="
+                margin-top: 0.25rem;
+                height: 0.35rem;
+                border-radius: 999px;
+                overflow: hidden;
+                background-color: var(--border-soft);
+              "
+            >
+              <div
+                style="
+                  width: 40%;
+                  height: 100%;
+                  background-color: var(--gain-red);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheduling (17) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">17</span>
+            <span>Automated Scheduling</span>
+          </div>
+          <p>Once an expert accepts the request, AI:</p>
+          <ul>
+            <li>Scans both calendars for free slots</li>
+            <li>Proposes 2–4 times to both parties</li>
+            <li>Books the meeting + sends invite with GAIN video link</li>
+          </ul>
+          <div
+            class="mt-2"
+            style="
+              border-radius: 0.9rem;
+              border: 1px solid var(--border-soft-2);
+              padding: 0.75rem;
+              background-color: var(--bg-soft);
+              font-size: 0.8rem;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.25rem;
+              "
+            >
+              <span>Suggested slots</span>
+              <span
+                style="font-weight: 600; color: var(--gain-red); font-size: 0.75rem;"
+                >Next 10 days</span
+              >
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+              <span class="pill-btn">Mon 10:00</span>
+              <span class="pill-btn">Tue 18:30</span>
+              <span class="pill-btn">Thu 20:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Synthesis + Points + Rating (18–21) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">18–21</span>
+            <span>Help Synthesis, Ratings &amp; Reciprocity</span>
+          </div>
+          <ul>
+            <li>
+              AI synthesizes written responses into one “GAIN Synthesis” (Story
+              18)
+            </li>
+            <li>
+              User spends Give Forward points to initiate high-value requests
+              (Story 19)
+            </li>
+            <li>Helpers earn points for completed meetings/answers (Story 20)</li>
+            <li>
+              Both sides confirm meeting completion and rate experience (Story
+              21)
+            </li>
+          </ul>
+          <div class="mt-2 space-y">
+            <div class="note-box red" style="background-color: #fff8f6;">
+              <strong>GAIN Synthesis from 3 experts</strong>
+              <p style="margin-top: 0.25rem; font-size: 0.7rem; opacity: 0.8;">
+                Key agreements · Diverging views · Next recommended steps.
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.8rem;
+              "
+            >
+              <span>Wallet balance</span>
+              <span style="color: var(--gain-red); font-weight: 600;"
+                >420 Give Forward pts</span
+              >
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.25rem;">
+              <span style="font-size: 0.7rem;">Rate interaction:</span>
+              <span style="color: var(--gain-peach); font-size: 1rem;">★</span>
+              <span style="color: var(--gain-peach); font-size: 1rem;">★</span>
+              <span style="color: var(--gain-peach); font-size: 1rem;">★</span>
+              <span style="color: var(--gain-peach); font-size: 1rem;">★</span>
+              <span style="color: var(--border-soft); font-size: 1rem;">★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 3: NETWORK MAP (User Stories 23–35) -->
+    <section class="section mx-auto max-w-6xl">
+      <div class="section-header">
+        <div class="section-badge">3</div>
+        <div>
+          <h2 class="section-title">Ongoing Network Visualization</h2>
+          <p class="section-subtitle">
+            User continuously understands and manages their professional graph
+            via the Network Map and its AI insights.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-2-1">
+        <!-- Graph + World Map mock (23–26, 28–33) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">23–26, 28–33</span>
+            <span>Interactive Graph &amp; World Map Modes</span>
+          </div>
+          <div class="grid" style="gap: 1rem;">
+            <div class="graph-card">
+              <div class="graph-top">
+                <span>Graph Mode</span>
+                <span>Filters · Search</span>
+              </div>
+              <div class="graph-area">
+                <div class="graph-node-center">
+                  <div></div>
+                </div>
+                <span
+                  class="map-node-small"
+                  style="
+                    left: 0.75rem;
+                    top: 2.2rem;
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    background-color: var(--gain-red);
+                  "
+                ></span>
+                <span
+                  class="map-node-small"
+                  style="
+                    right: 1.5rem;
+                    top: 1.5rem;
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    background-color: var(--gain-peach);
+                    opacity: 0.8;
+                  "
+                ></span>
+                <span
+                  class="map-node-small"
+                  style="
+                    left: 2.5rem;
+                    bottom: 1.7rem;
+                    width: 0.65rem;
+                    height: 0.65rem;
+                    background-color: var(--gain-peach);
+                    opacity: 0.6;
+                  "
+                ></span>
+                <span
+                  class="map-node-small"
+                  style="
+                    right: 1.2rem;
+                    bottom: 2.7rem;
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    background-color: var(--gain-red);
+                  "
+                ></span>
+                <!-- simple connection lines via SVG -->
+                <svg
+                  viewBox="0 0 200 200"
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="40"
+                    y2="60"
+                    stroke="#f0d2ca"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="160"
+                    y2="50"
+                    stroke="#f0d2ca"
+                    stroke-width="1.5"
+                  />
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="60"
+                    y2="150"
+                    stroke="#f0d2ca"
+                    stroke-width="0.8"
+                  />
+                  <line
+                    x1="100"
+                    y1="100"
+                    x2="170"
+                    y2="130"
+                    stroke="#f0d2ca"
+                    stroke-width="1.2"
+                  />
+                </svg>
+              </div>
+              <p style="font-size: 0.7rem;">
+                Node brightness, edge thickness, and heat overlays communicate
+                recency, intensity, and activity clusters (Stories 23, 25, 32).
+              </p>
+            </div>
+
+            <div class="world-card">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.75rem;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                <span>World Map Mode</span>
+                <span style="font-size: 0.7rem; color: var(--gain-red);"
+                  >Activity Heatmap</span
+                >
+              </div>
+              <div class="world-map">
+                <div class="world-map-center-text">
+                  World silhouettes &amp; clusters
+                </div>
+                <div
+                  class="world-heat"
+                  style="
+                    left: 1.5rem;
+                    top: 2.5rem;
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    background-color: rgba(191, 13, 52, 0.55);
+                  "
+                ></div>
+                <div
+                  class="world-heat"
+                  style="
+                    right: 2.5rem;
+                    top: 4rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    background-color: rgba(255, 130, 105, 0.6);
+                  "
+                ></div>
+                <div
+                  class="world-heat"
+                  style="
+                    left: 4rem;
+                    bottom: 2.5rem;
+                    width: 1rem;
+                    height: 1rem;
+                    background-color: rgba(191, 13, 52, 0.7);
+                  "
+                ></div>
+              </div>
+              <p>
+                Toggle between graph and geographic view, search for
+                people/orgs, filter by connection type, and expand second-degree
+                nodes (Stories 24, 26, 28–31, 33).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Re-engagement & guest view (27, 29–30, 34–35) -->
+        <div class="space-y">
+          <div class="card">
+            <div class="card-header">
+              <span class="story-badge">27, 29–31</span>
+              <span>Act on the Map</span>
+            </div>
+            <ul>
+              <li>
+                Open side panel to message, request help, or schedule directly
+                from nodes (Story 27)
+              </li>
+              <li>
+                Search bar highlights nodes and centers on results (Story 29)
+              </li>
+              <li>
+                Filter by connection type / organizations, with distinct shapes
+                for companies &amp; orgs (Stories 30–31)
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="story-badge">32–35</span>
+              <span>Activity, Suggestions &amp; Guest Mode</span>
+            </div>
+            <ul>
+              <li>
+                Activity heatmap reveals “hot” collaboration clusters (Story 32)
+              </li>
+              <li>
+                AI suggests people/orgs to connect with, based on skills and
+                reciprocity (Story 33)
+              </li>
+              <li>
+                Guest users can zoom/hover but must request sponsorship to act
+                (Story 34)
+              </li>
+              <li>
+                AI highlights people to re-engage with based on history (Story
+                35)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 4: NETWORK CALENDAR (User Stories 36–39) -->
+    <section class="section mx-auto max-w-6xl">
+      <div class="section-header">
+        <div class="section-badge">4</div>
+        <div>
+          <h2 class="section-title">Network Calendar &amp; Events</h2>
+          <p class="section-subtitle">
+            User manages all their GAIN meetings, sessions, and network events
+            in one unified calendar view.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-2-1">
+        <!-- Calendar mock (36–38) -->
+        <div class="card">
+          <div class="card-header">
+            <span class="story-badge">36–38</span>
+            <span>Interactive Network Calendar</span>
+          </div>
+          <div class="calendar-pane">
+            <div class="calendar-header">
+              <span>Week View</span>
+              <span style="opacity: 0.7;">My Events · Network Events</span>
+            </div>
+            <div class="calendar-body">
+              <div class="calendar-days">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+              </div>
+              <div class="calendar-grid">
+                <div class="calendar-cell"></div>
+                <div class="calendar-cell mentorship">
+                  1–1 Mentorship
+                </div>
+                <div class="calendar-cell"></div>
+                <div class="calendar-cell ai-call">
+                  AI-scheduled call
+                </div>
+                <div class="calendar-cell"></div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-2">
+            All AI-scheduled calls, group sessions, and events appear here
+            (Story 36). Users can also create their own events and control
+            visibility and Give Forward requirements (Story 37).
+          </p>
+        </div>
+
+        <!-- Event creation & joining public events (37–39) -->
+        <div class="space-y">
+          <div class="card">
+            <div class="card-header">
+              <span class="story-badge">37</span>
+              <span>Create 1–1 or Group Events</span>
+            </div>
+            <ul>
+              <li>
+                Set title, time, location / video link, capacity (Story 37)
+              </li>
+              <li>Decide if event is public, invite-only, or requires points</li>
+            </ul>
+            <div class="note-box" style="background-color: #fff8f6;">
+              + Create event “Tech Mentorship Hour” · Public · 20 seats · 50 pts
+              required
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="story-badge">38–39</span>
+              <span>Availability &amp; Joining Network Events</span>
+            </div>
+            <ul>
+              <li>
+                View others’ shared availability windows from their profile
+                (Story 38)
+              </li>
+              <li>
+                Join public/network-wide events directly from the calendar
+                (Story 39)
+              </li>
+            </ul>
+            <div
+              class="mt-2"
+              style="
+                border-radius: 0.9rem;
+                border: 1px solid var(--border-soft-2);
+                padding: 0.75rem;
+                background-color: var(--bg-soft);
+                font-size: 0.8rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+              "
+            >
+              <span><strong>Network Event:</strong> “Global Armenian Founders Meetup”</span>
+              <span>Host: GAIN · Online · Sat 19:00</span>
+              <button
+                style="
+                  margin-top: 0.35rem;
+                  align-self: flex-start;
+                  padding: 0.3rem 0.75rem;
+                  border-radius: 999px;
+                  border: none;
+                  background-color: var(--gain-red);
+                  color: var(--bg-soft);
+                  font-size: 0.75rem;
+                  font-weight: 600;
+                  cursor: default;
+                "
+              >
+                Join event
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      GAIN MVP · Brand colors: #ff8269 · #bf0d34 · #382a27 · Designed for PPT
+      landscape screenshots.
+    </div>
+  </div>
+</body>
+</html>
